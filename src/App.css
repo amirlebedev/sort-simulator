@@ -1,38 +1,97 @@
-.App {
-  text-align: center;
+:root {
+  --info-container-width: 30%;
+  --UI-container-width: 20%;
+  --algorithm-container-width: 50%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background-color: lightblue;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.page {
+  height: 100%;
+  width: 100%;
+}
+
+.UI {
+  background-color: rgb(51, 51, 51);
+  position: absolute;
+  height: 100%;
+  width: var(--UI-container-width);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.output {
+  background-color: #808080;
+  position: absolute;
+  text-align: center;
+  height: 100%;
+  width: var(--algorithm-container-width);
+  margin-left: var(--UI-container-width);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.info {
+  background-color: #c0c0c0;
+  position: absolute;
+  /* float: right; */
+  height: 100%;
+  width: var(--info-container-width);
+  margin-left: 70%;
+  color: black;
+  text-align: center;
+}
+
+.info-block {
+  font-weight: bold;
+  text-align: left;
+  display: inline-block;
+  padding-top: 50%;
+  padding-left: 3em;
+}
+
+.num {
+  display: inline-block;
+  padding: 1em 0.5em;
+  vertical-align: bottom;
+  background-color: white;
+  margin: 20% 1px 0% 0%;
+  width: 1px;
+  font-size: 5px;
+  color: transparent;
+}
+
+.btn {
+  background-color: #ffa71a;
+  border: none;
+  width: 90%;
+  color: white;
+  font-weight: bold;
+  padding: 1em 1em;
+  border-radius: 0.5em;
+  font-size: 1.3em;
+  cursor: pointer;
+  margin: 1em 1em 1em 1em;
+}
+
+.slider {
+  margin-top: 5em;
+  margin-left: 30%;
+  margin-right: 1em;
+}
+
+.dropdown {
+  margin: 10% 30% 10% 30%;
+}
+
+.label {
+  font-size: 40px;
+  margin: 10% 30% 0% 0%;
 }
