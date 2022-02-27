@@ -53,8 +53,9 @@ body {
   font-weight: bold;
   text-align: left;
   display: inline-block;
-  padding-top: 50%;
+  padding-top: 20%;
   padding-left: 3em;
+  font-size: 0.9vw;
 }
 
 .num {
@@ -64,7 +65,7 @@ body {
   background-color: white;
   margin: 20% 1px 0% 0%;
   width: 1px;
-  font-size: 5px;
+  font-size: 0.3vw;
   color: transparent;
 }
 

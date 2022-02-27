@@ -20,8 +20,9 @@ import { BubbleSortInfo } from './algorithm-info';
 function App() {
   // todo state object
   // todo map text info rather than hardcode it
-  // todo fix animation
-  // todo use colors in animation
+  // fix quicksort
+  // todo implement mergesort
+  // todo mobile virsion
   const [sound, setSound] = useState('ON');
   const [soundText, setSoundText] = useState('Sound Off');
   const [speed, setSpeed] = useState(10);
@@ -32,11 +33,8 @@ function App() {
   const [algorithm, setAlgorithm] = useState('BubbleSort');
 
   const [array, setArray] = useState([]);
-  const [arrayLength, setArrayLength] = useState(60);
+  const [arrayLength, setArrayLength] = useState(50);
   const [textIteration, setTextIteration] = useState('Iteration:  0');
-
-  const delay = async (ms = 1000) =>
-    new Promise(resolve => setTimeout(resolve, ms));
 
   useEffect(() => {
     document.title = 'Sorting Simulator';
@@ -112,8 +110,8 @@ function App() {
 
 function Num(array) {
   const numbers = array.numbers;
-  const listItems = numbers.map(number => (
-    <div key={number} className="num" style={{ height: `${5 * number}px` }}>
+  const listItems = numbers.map((number, index) => (
+    <div key={index} className="num" style={{ height: `${5 * number}px` }}>
       {number}
     </div>
   ));

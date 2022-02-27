@@ -9,7 +9,7 @@ const Slider = ({ handleSlider }) => {
         min="5"
         max="60"
         step="5"
-        defaultValue="59"
+        defaultValue="50"
         onChange={e => handleSlider(e)}
       />
     </>

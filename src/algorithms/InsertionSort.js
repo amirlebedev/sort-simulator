@@ -1,10 +1,15 @@
-function BubbleSort(array, speed, setTextIteration) {
+function InsertionSort(array, speed, setTextIteration) {
   let newArray = array.slice();
   let iterationCount = 0;
-  let i = 0;
-  let j = 1;
+  let i = 1;
+  let j = 0;
+  let current;
   let outerLoopDelay = 1;
   let innerLoopDelay = 1;
+  let n = newArray.length;
+
+  current = newArray[i];
+  j = i - 1;
 
   switch (speed) {
     case 1:
@@ -23,35 +28,39 @@ function BubbleSort(array, speed, setTextIteration) {
       outerLoopDelay = 1;
       innerLoopDelay = 1;
   }
-
+  // THIS IS THE CHANGE
   outside();
   function outside() {
     setTimeout(() => {
-      //inner loop
-      j = 0;
       inside();
       function inside() {
         setTimeout(() => {
           setTextIteration(`Iteration: ${iterationCount}`);
-          if (newArray[j] > newArray[j + 1]) {
-            let temp = newArray[j];
-            newArray[j] = newArray[j + 1];
-            newArray[j + 1] = temp;
+          if (j > -1 && current < newArray[j]) {
+            newArray[j + 1] = newArray[j];
+            j--;
           }
+          //looping element
           iterationCount += 1;
-          j++;
-          if (j < newArray.length) {
+
+          if (j > -1 && current < newArray[j]) {
             inside();
+          } else {
+            //this technically in the inside loop
+            //but this works in the "outside" loop
+            i++;
+            newArray[j + 1] = current;
           }
         }, innerLoopDelay);
       }
       //outer loop
-      i++;
-      if (i < newArray.length) {
+      current = newArray[i];
+      j = i - 1;
+      if (i < n) {
         outside();
       }
     }, outerLoopDelay);
   }
   return newArray;
 }
-export default BubbleSort;
+export default InsertionSort;
