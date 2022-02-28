@@ -1,14 +1,10 @@
 import React from 'react';
 
-const ButtonRandom = ({ randomText, handleRandom, props }) => {
-  const { random, setRandom, setRandomText } = props;
+const ButtonRandom = ({ handleRandom, setUI, ui }) => {
   return (
     <>
-      <button
-        className="btn"
-        onClick={() => handleRandom(random, setRandom, setRandomText)}
-      >
-        {randomText}
+      <button className="btn" onClick={() => handleRandom(setUI, ui)}>
+        {ui.randomText}
       </button>
     </>
   );

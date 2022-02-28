@@ -4,22 +4,23 @@ import {
   InsertionSortInfo,
   QuickSortInfo,
   MergeSortInfo,
-} from '../algorithm-info';
+} from '../components/algorithm-info';
 
-const handleDropdown = (event, setInfo, setAlgorithm) => {
+const handleDropdown = (event, setUI, ui) => {
   const selection = event.target.value;
-
-  setAlgorithm(selection);
+  // setUI({ ...ui, algorithm: selection });
   if (selection === 'BubbleSort') {
-    setInfo(BubbleSortInfo);
+    setUI({ ...ui, algorithm: selection, info: BubbleSortInfo() });
   } else if (selection === 'SelectionSort') {
-    setInfo(SelectionSortInfo);
+    setUI({ ...ui, algorithm: selection, info: SelectionSortInfo() });
   } else if (selection === 'InsertionSort') {
-    setInfo(InsertionSortInfo);
+    setUI({ ...ui, algorithm: selection, info: InsertionSortInfo() });
   } else if (selection === 'QuickSort') {
-    setInfo(QuickSortInfo);
+    alert('QuickSort not functional yet.');
+    setUI({ ...ui, algorithm: selection, info: QuickSortInfo() });
   } else if (selection === 'MergeSort') {
-    setInfo(MergeSortInfo);
+    alert('MergeSort not functional yet.');
+    setUI({ ...ui, algorithm: selection, info: MergeSortInfo() });
   }
 };
 

@@ -7,6 +7,7 @@ import ButtonRandom from './components/ButtonRandom';
 import ButtonRun from './components/ButtonRun';
 import Slider from './components/Slider';
 import Dropdown from './components/Dropdown';
+import Num from './components/Num';
 // Functions
 import handleSound from './functions/HandleSound';
 import handleSpeed from './functions/HandleSpeed';
@@ -15,23 +16,23 @@ import handleRun from './functions/HandleRun';
 import handleDropdown from './functions/HandleDropdown';
 import { shuffle, generateRandomInt } from './functions/ArrayFunctions';
 // Misc
-import { BubbleSortInfo } from './algorithm-info';
+import { BubbleSortInfo } from './components/algorithm-info';
 
 function App() {
   // todo state object
   // todo map text info rather than hardcode it
-  // fix quicksort
-  // todo implement mergesort
-  // todo mobile virsion
-  const [sound, setSound] = useState('ON');
-  const [soundText, setSoundText] = useState('Sound Off');
-  const [speed, setSpeed] = useState(10);
-  const [speedText, setSpeedText] = useState(`Animation Speed X${speed}`);
-  const [random, setRandom] = useState('ON');
-  const [randomText, setRandomText] = useState('Random Numbers');
-  const [info, setInfo] = useState(BubbleSortInfo);
-  const [algorithm, setAlgorithm] = useState('BubbleSort');
-
+  // fix quicksort + mergesort
+  // todo mobile version
+  const [ui, setUI] = useState({
+    sound: 'OFF',
+    soundText: 'Sound Off',
+    speed: 10,
+    speedText: `Animation Speed X10`,
+    random: 'ON',
+    randomText: 'Random Numbers',
+    info: BubbleSortInfo(),
+    algorithm: 'BubbleSort',
+  });
   const [array, setArray] = useState([]);
   const [arrayLength, setArrayLength] = useState(50);
   const [textIteration, setTextIteration] = useState('Iteration:  0');
@@ -43,7 +44,7 @@ function App() {
   useEffect(() => {
     // change array based on random button and slider
     let array = [];
-    if (random == 'ON') {
+    if (ui.random == 'ON') {
       for (let i = 1; i <= arrayLength; i++) {
         let num = generateRandomInt();
         if (array.includes(num)) {
@@ -59,8 +60,9 @@ function App() {
       }
     }
     setArray(array);
+    setTextIteration('Iteration:  0');
     console.log(array);
-  }, [random, arrayLength]);
+  }, [ui.random, arrayLength]);
 
   const handleSlider = input => {
     setArrayLength(input.target.value);
@@ -70,30 +72,19 @@ function App() {
     <div className="page">
       <section className="UI">
         <div className="UI-container">
-          <Dropdown
-            handleDropdown={handleDropdown}
-            setInfo={setInfo}
-            setAlgorithm={setAlgorithm}
-          />
+          <Dropdown handleDropdown={handleDropdown} setUI={setUI} ui={ui} />
           <Slider handleSlider={handleSlider} />
-          <ButtonSound
-            soundText={soundText}
-            handleSound={handleSound}
-            props={{ sound, setSound, setSoundText }}
-          />
-          <ButtonSpeed
-            speedText={speedText}
-            handleSpeed={handleSpeed}
-            props={{ speed, setSpeed, setSpeedText }}
-          />
-          <ButtonRandom
-            randomText={randomText}
-            handleRandom={handleRandom}
-            props={{ random, setRandom, setRandomText }}
-          />
+          <ButtonSound handleSound={handleSound} setUI={setUI} ui={ui} />
+          <ButtonSpeed handleSpeed={handleSpeed} setUI={setUI} ui={ui} />
+          <ButtonRandom handleRandom={handleRandom} setUI={setUI} ui={ui} />
           <ButtonRun
             handleRun={handleRun}
-            props={{ array, setArray, speed, setTextIteration, algorithm }}
+            ui={ui}
+            props={{
+              array,
+              setArray,
+              setTextIteration,
+            }}
           />
         </div>
       </section>
@@ -102,19 +93,10 @@ function App() {
         <h1>{textIteration}</h1>
       </section>
       <section className="info">
-        <div className="info-block">{info}</div>
+        <div className="info-block">{ui.info}</div>
       </section>
     </div>
   );
 }
 
-function Num(array) {
-  const numbers = array.numbers;
-  const listItems = numbers.map((number, index) => (
-    <div key={index} className="num" style={{ height: `${5 * number}px` }}>
-      {number}
-    </div>
-  ));
-  return <div>{listItems}</div>;
-}
 export default App;

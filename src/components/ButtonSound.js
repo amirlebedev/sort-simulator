@@ -1,15 +1,10 @@
 import React from 'react';
 
-const ButtonSound = ({ soundText, handleSound, props }) => {
+const ButtonSound = ({ handleSound, setUI, ui }) => {
   return (
     <>
-      <button
-        className="btn"
-        onClick={() =>
-          handleSound(props.sound, props.setSound, props.setSoundText)
-        }
-      >
-        {soundText}
+      <button className="btn" onClick={() => handleSound(setUI, ui)}>
+        {ui.soundText}
       </button>
     </>
   );

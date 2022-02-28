@@ -1,14 +1,10 @@
 import React from 'react';
 
-const ButtonSpeed = ({ speedText, handleSpeed, props }) => {
-  const { speed, setSpeed, setSpeedText } = props;
+const ButtonSpeed = ({ handleSpeed, setUI, ui }) => {
   return (
     <>
-      <button
-        className="btn"
-        onClick={() => handleSpeed(speed, setSpeed, setSpeedText)}
-      >
-        {speedText}
+      <button className="btn" onClick={() => handleSpeed(setUI, ui)}>
+        {ui.speedText}
       </button>
     </>
   );

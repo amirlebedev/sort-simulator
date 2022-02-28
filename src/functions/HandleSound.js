@@ -1,11 +1,9 @@
-const handleSound = (sound, setSound, setSoundText) => {
+const handleSound = (setUI, ui) => {
   alert('Sound is not functional yet.');
-  if (sound === 'ON') {
-    setSound('OFF');
-    setSoundText('Sound Off');
+  if (ui.sound == 'ON') {
+    setUI({ ...ui, sound: 'OFF', soundText: 'Sound Off' });
   } else {
-    setSound('ON');
-    setSoundText('Sound On');
+    setUI({ ...ui, sound: 'ON', soundText: 'Sound On' });
   }
 };
 

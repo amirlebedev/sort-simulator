@@ -1,10 +1,8 @@
-const handleRandom = (random, setRandom, setRandomText) => {
-  if (random === 'ON') {
-    setRandom('OFF');
-    setRandomText('Ordered Numbers');
+const handleRandom = (setUI, ui) => {
+  if (ui.random === 'ON') {
+    setUI({ ...ui, random: 'OFF', randomText: 'Ordered Numbers' });
   } else {
-    setRandom('ON');
-    setRandomText('Random Numbers');
+    setUI({ ...ui, random: 'ON', randomText: 'Random Numbers' });
   }
 };
 export default handleRandom;

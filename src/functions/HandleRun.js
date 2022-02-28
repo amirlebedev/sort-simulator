@@ -2,9 +2,13 @@ import BubbleSort from '../algorithms/BubbleSort';
 import SelectionSort from '../algorithms/SelectionSort';
 import InsertionSort from '../algorithms/InsertionSort';
 import QuickSort from '../algorithms/QuickSort';
+import MergeSort from '../algorithms/MergeSort';
 
-function handleRun(array, setArray, speed, setTextIteration, algorithm) {
+function handleRun(ui, props) {
+  const { speed, algorithm } = ui;
+  const { array, setArray, setTextIteration } = props;
   let newArray = [];
+
   if (algorithm === 'BubbleSort') {
     newArray = BubbleSort(array, speed, setTextIteration);
   } else if (algorithm === 'SelectionSort') {
@@ -12,12 +16,11 @@ function handleRun(array, setArray, speed, setTextIteration, algorithm) {
   } else if (algorithm === 'InsertionSort') {
     newArray = InsertionSort(array, speed, setTextIteration);
   } else if (algorithm === 'QuickSort') {
-    alert('QuickSort not functional yet.');
-    // newArray = QuickSort(array, speed, setTextIteration);
+    newArray = BubbleSort(array, speed, setTextIteration);
   } else if (algorithm === 'MergeSort') {
-    alert('Not functional yet.');
-    // newArray = BubbleSort(array, speed, setTextIteration, setArray);
+    newArray = BubbleSort(array, speed, setTextIteration, setArray);
   }
+
   setArray(newArray);
 }
 
