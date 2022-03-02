@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/sort-simulator/static/css/main.ab5ff50d.css",
-    "main.js": "/sort-simulator/static/js/main.0f06d968.js",
+    "main.js": "/sort-simulator/static/js/main.ced83a5d.js",
     "static/js/787.4f1728f6.chunk.js": "/sort-simulator/static/js/787.4f1728f6.chunk.js",
     "index.html": "/sort-simulator/index.html",
     "main.ab5ff50d.css.map": "/sort-simulator/static/css/main.ab5ff50d.css.map",
-    "main.0f06d968.js.map": "/sort-simulator/static/js/main.0f06d968.js.map",
+    "main.ced83a5d.js.map": "/sort-simulator/static/js/main.ced83a5d.js.map",
     "787.4f1728f6.chunk.js.map": "/sort-simulator/static/js/787.4f1728f6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ab5ff50d.css",
-    "static/js/main.0f06d968.js"
+    "static/js/main.ced83a5d.js"
   ]
 }
