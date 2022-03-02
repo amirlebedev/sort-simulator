@@ -7,6 +7,7 @@ function SelectionSort(array, speed, setTextIteration) {
   let outerLoopDelay = 1;
   let innerLoopDelay = 1;
   let n = newArray.length;
+  let p = 0;
 
   switch (speed) {
     case 1:
@@ -42,14 +43,17 @@ function SelectionSort(array, speed, setTextIteration) {
           //looping element
           iterationCount += 1;
           j++;
-
           if (j < n) {
+            document.getElementById(newArray[j]).style.backgroundColor =
+              'white';
             inside();
           } else {
             //this technically in the inside loop
             //but this works in the "outside" loop
             if (min != i) {
-              console.log('INSIDE');
+              document.getElementById(newArray[i]).style.backgroundColor =
+                'red';
+
               let tmp = newArray[i];
               newArray[i] = newArray[min];
               newArray[min] = tmp;
@@ -62,6 +66,17 @@ function SelectionSort(array, speed, setTextIteration) {
 
       if (i < n) {
         outside();
+      } else {
+        colorGreen();
+        function colorGreen() {
+          setTimeout(() => {
+            document.getElementById(newArray[p]).style.backgroundColor = 'lime';
+            if (p < newArray.length - 1) {
+              p++;
+              colorGreen();
+            }
+          }, 20);
+        }
       }
     }, outerLoopDelay);
   }

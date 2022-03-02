@@ -7,6 +7,7 @@ function InsertionSort(array, speed, setTextIteration) {
   let outerLoopDelay = 1;
   let innerLoopDelay = 1;
   let n = newArray.length;
+  let p = 0;
 
   current = newArray[i];
   j = i - 1;
@@ -35,8 +36,9 @@ function InsertionSort(array, speed, setTextIteration) {
       inside();
       function inside() {
         setTimeout(() => {
-          setTextIteration(`Iteration: ${iterationCount}`);
           if (j > -1 && current < newArray[j]) {
+            document.getElementById(newArray[j]).style.backgroundColor =
+              'white';
             newArray[j + 1] = newArray[j];
             j--;
           }
@@ -44,12 +46,14 @@ function InsertionSort(array, speed, setTextIteration) {
           iterationCount += 1;
 
           if (j > -1 && current < newArray[j]) {
+            document.getElementById(newArray[j]).style.backgroundColor = 'red';
             inside();
           } else {
             //this technically in the inside loop
             //but this works in the "outside" loop
             i++;
             newArray[j + 1] = current;
+            setTextIteration(`Iteration: ${iterationCount}`);
           }
         }, innerLoopDelay);
       }
@@ -58,6 +62,17 @@ function InsertionSort(array, speed, setTextIteration) {
       j = i - 1;
       if (i < n) {
         outside();
+      } else {
+        colorGreen();
+        function colorGreen() {
+          setTimeout(() => {
+            document.getElementById(newArray[p]).style.backgroundColor = 'lime';
+            if (p < newArray.length - 1) {
+              p++;
+              colorGreen();
+            }
+          }, 20);
+        }
       }
     }, outerLoopDelay);
   }
