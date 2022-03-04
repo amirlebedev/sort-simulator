@@ -5,6 +5,7 @@ function BubbleSort(array, speed, setTextIteration) {
   let j = 1;
   let outerLoopDelay = 1;
   let innerLoopDelay = 1;
+  let p = 0;
 
   switch (speed) {
     case 1:
@@ -32,6 +33,7 @@ function BubbleSort(array, speed, setTextIteration) {
       inside();
       function inside() {
         setTimeout(() => {
+          document.getElementById(newArray[j]).style.backgroundColor = 'red';
           setTextIteration(`Iteration: ${iterationCount}`);
           if (newArray[j] > newArray[j + 1]) {
             let temp = newArray[j];
@@ -39,6 +41,7 @@ function BubbleSort(array, speed, setTextIteration) {
             newArray[j + 1] = temp;
           }
           iterationCount += 1;
+          document.getElementById(newArray[j]).style.backgroundColor = 'white';
           j++;
           if (j < newArray.length) {
             inside();
@@ -49,6 +52,17 @@ function BubbleSort(array, speed, setTextIteration) {
       i++;
       if (i < newArray.length) {
         outside();
+      } else {
+        colorGreen();
+        function colorGreen() {
+          setTimeout(() => {
+            document.getElementById(newArray[p]).style.backgroundColor = 'lime';
+            if (p < newArray.length - 1) {
+              p++;
+              colorGreen();
+            }
+          }, 20);
+        }
       }
     }, outerLoopDelay);
   }
