@@ -23,3 +23,23 @@ export function shuffle(array) {
   }
   return array;
 }
+
+export function generateArray(ui, arrayLength) {
+  let newArray = [];
+  if (ui.random == 'ON') {
+    for (let i = 1; i <= arrayLength; i++) {
+      let num = generateRandomInt();
+      if (newArray.includes(num)) {
+        i--;
+      } else {
+        newArray.push(num);
+      }
+    }
+  } else {
+    for (let i = 1; i <= arrayLength; i++) {
+      newArray.push(i);
+      newArray = shuffle(newArray);
+    }
+  }
+  return newArray;
+}

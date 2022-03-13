@@ -1,44 +1,38 @@
 export function BubbleSortInfo() {
   const string = [
     'for(var i = 0; i < arr.length; i++)⠀{',
+    <br />,
+    <br />,
     '⠀⠀// Last i elements are already in place  ',
+    <br />,
     '⠀⠀for(var j = 0; j < ( arr.length - i -1 ); j++)⠀{',
+    <br />,
+    <br />,
     '⠀⠀⠀⠀// Checking if the item at present iteration ',
+    <br />,
     '⠀⠀⠀⠀// is greater than the next iteration',
+    <br />,
     '⠀⠀⠀⠀if(arr[j] > arr[j+1])⠀{',
+    <br />,
+    <br />,
     '⠀⠀⠀⠀⠀⠀// If the condition is true then swap them',
+    <br />,
     '⠀⠀⠀⠀⠀⠀var temp = arr[j]',
+    <br />,
     '⠀⠀⠀⠀⠀⠀arr[j] = arr[j + 1]',
+    <br />,
     '⠀⠀⠀⠀⠀⠀arr[j+1] = temp',
+    <br />,
     '⠀⠀}',
+    <br />,
     '}',
+    <br />,
     'Best-case: O(n) Average-case:	O(n^2) Worst-case:	O(n^2)',
   ];
+
   return (
     <>
-      <p className="info-text">
-        {string[0]} <br /> <br />
-        {string[1]}
-        <br />
-        {string[2]} <br /> <br />
-        {string[3]} <br />
-        {string[4]} <br />
-        {string[5]}
-        <br />
-        <br />
-        {string[6]}
-        <br />
-        {string[7]}
-        <br />
-        {string[8]}
-        <br />
-        {string[9]}
-        <br />
-        {string[10]} <br />
-        {string[11]} <br />
-        {string[12]}
-        <br />
-      </p>
+      <p className="info-text">{string}</p>
     </>
   );
 }
@@ -46,54 +40,42 @@ export function BubbleSortInfo() {
 export function SelectionSortInfo() {
   const string = [
     'for(let i = 0; i < arr.length; i++)⠀{',
+    <br />,
+    <br />,
     '⠀⠀// Finding the smallest number in the subarray',
+    <br />,
     '⠀⠀let min = i;',
+    <br />,
+    <br />,
     '⠀⠀for(let j = i+1; j < arr.length; j++)⠀{',
+    <br />,
     '⠀⠀⠀⠀if(arr[j] < arr[min])⠀ {',
+    <br />,
     '⠀⠀⠀⠀⠀⠀ min=j; ',
+    <br />,
     '⠀⠀⠀⠀}',
+    <br />,
     '⠀⠀}',
+    <br />,
     '⠀⠀if (min != i)⠀ {',
+    <br />,
     '⠀⠀⠀⠀// Swapping the elements',
+    <br />,
     '⠀⠀⠀⠀let tmp = arr[i];',
+    <br />,
     '⠀⠀⠀⠀arr[i] = arr[min];',
+    <br />,
     '⠀⠀⠀⠀arr[min] = tmp;',
+    <br />,
     '⠀⠀⠀⠀}',
+    <br />,
     '}',
+    <br />,
     'Best-case: O(n^2) Average-case:	O(n^2) Worst-case:	O(n^2)',
   ];
   return (
     <>
-      <p className="info-text">
-        {string[0]} <br /> <br />
-        {string[1]}
-        <br />
-        {string[2]} <br /> <br />
-        {string[3]} <br />
-        {string[4]} <br />
-        {string[5]}
-        <br />
-        {string[6]}
-        <br />
-        {string[7]}
-        <br />
-        {string[8]}
-        <br />
-        {string[9]}
-        <br />
-        {string[10]} <br />
-        {string[11]} <br />
-        {string[12]}
-        <br />
-        {string[13]}
-        <br />
-        {string[14]}
-        <br />
-        {string[15]}
-        <br />
-        {string[16]}
-        <br />
-      </p>
+      <p className="info-text">{string}</p>
     </>
   );
 }
@@ -101,42 +83,34 @@ export function SelectionSortInfo() {
 export function InsertionSortInfo() {
   const string = [
     'for (let i = 1; i < arr.length; i++)⠀{',
+    <br />,
+    <br />,
     '⠀⠀// Choosing the first element in our unsorted subarray',
+    <br />,
     '⠀⠀let current = arr[i];',
+    <br />,
+    <br />,
     '⠀⠀// The last element of our sorted subarray',
+    <br />,
     '⠀⠀let j = i-1;',
+    <br />,
     '⠀⠀while ((j > -1) && (current < arr[j]))⠀{',
+    <br />,
     '⠀⠀⠀⠀arr[j+1] = arr[j];',
+    <br />,
     '⠀⠀⠀⠀j--;',
+    <br />,
     '⠀⠀}',
+    <br />,
     '⠀⠀arr[j+1] = current;',
+    <br />,
     '}',
+    <br />,
     'Best-case: O(n) Average-case: O(n^2) Worst-case: O(n^2)',
   ];
   return (
     <>
-      <p className="info-text">
-        {string[0]} <br /> <br />
-        {string[1]}
-        <br />
-        {string[2]} <br /> <br />
-        {string[3]} <br />
-        {string[4]} <br />
-        {string[5]}
-        <br />
-        {string[6]}
-        <br />
-        {string[7]}
-        <br />
-        {string[8]}
-        <br />
-        {string[9]}
-        <br />
-        {string[10]} <br />
-        {string[11]} <br />
-        {string[12]}
-        <br />
-      </p>
+      <p className="info-text">{string}</p>
     </>
   );
 }
@@ -171,48 +145,7 @@ export function QuickSortInfo() {
   ];
   return (
     <>
-      <p className="info-text">
-        {string[0]} <br /> <br />
-        {string[1]}
-        <br />
-        {string[2]} <br /> <br />
-        {string[3]} <br />
-        {string[4]} <br />
-        {string[5]}
-        <br />
-        <br />
-        {string[6]} <br />
-        {string[7]}
-        <br />
-        {string[8]} <br />
-        {string[9]}
-        <br />
-        {string[10]} <br />
-        {string[11]} <br />
-        {string[12]}
-        <br />
-        {string[13]}
-        <br />
-        {string[14]}
-        <br />
-        {string[15]}
-        <br /> <br />
-        {string[16]}
-        <br />
-        {string[17]} <br /> <br />
-        {string[18]} <br />
-        {string[19]} <br /> <br />
-        {string[20]}
-        <br />
-        {string[21]}
-        <br />
-        {string[22]}
-        <br />
-        {string[23]}
-        <br />
-        {string[24]}
-        <br />
-      </p>
+      <p className="info-text">{string}</p>
     </>
   );
 }
@@ -247,48 +180,7 @@ export function MergeSortInfo() {
   ];
   return (
     <>
-      <p className="info-text">
-        {string[0]} <br />
-        {string[1]}
-        <br />
-        <br />
-        {string[2]} <br />
-        {string[3]} <br />
-        {string[4]} <br />
-        {string[5]}
-        <br />
-        {string[6]} <br />
-        {string[7]}
-        <br />
-        {string[8]} <br />
-        {string[9]}
-        <br />
-        {string[10]} <br />
-        {string[11]} <br />
-        {string[12]}
-        <br />
-        {string[13]}
-        <br />
-        {string[14]}
-        <br /> <br />
-        {string[15]}
-        <br />
-        {string[16]}
-        <br />
-        {string[17]} <br />
-        {string[18]} <br />
-        {string[19]} <br />
-        {string[20]}
-        <br />
-        {string[21]}
-        <br />
-        {string[22]}
-        <br />
-        {string[23]}
-        <br />
-        {string[24]}
-        <br />
-      </p>
+      <p className="info-text">{string}</p>
     </>
   );
 }

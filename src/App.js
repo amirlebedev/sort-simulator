@@ -14,12 +14,15 @@ import handleSpeed from './functions/HandleSpeed';
 import handleRandom from './functions/HandleRandom';
 import handleRun from './functions/HandleRun';
 import handleDropdown from './functions/HandleDropdown';
-import { shuffle, generateRandomInt } from './functions/ArrayFunctions';
+import {
+  shuffle,
+  generateRandomInt,
+  generateArray,
+} from './functions/ArrayFunctions';
 // Misc
 import { BubbleSortInfo } from './components/algorithm-info';
 
 function App() {
-  // todo state object
   // todo map text info rather than hardcode it
   // fix quicksort + mergesort
   // todo mobile version
@@ -43,23 +46,8 @@ function App() {
 
   useEffect(() => {
     // change array based on random button and slider
-    let array = [];
-    if (ui.random == 'ON') {
-      for (let i = 1; i <= arrayLength; i++) {
-        let num = generateRandomInt();
-        if (array.includes(num)) {
-          i--;
-        } else {
-          array.push(num);
-        }
-      }
-    } else {
-      for (let i = 1; i <= arrayLength; i++) {
-        array.push(i);
-        array = shuffle(array);
-      }
-    }
-    setArray(array);
+    let newArray = generateArray(ui, arrayLength);
+    setArray(newArray);
     setTextIteration('Iteration:  0');
     console.log(array);
   }, [ui.random, arrayLength]);
